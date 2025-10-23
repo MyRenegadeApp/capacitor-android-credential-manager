@@ -1,4 +1,6 @@
-# Capacitor Credential Manager Plugin
+# Capacitor Android Credential Manager
+
+`@myrenegade/capacitor-android-credential-manager`
 
 A Capacitor plugin that polyfills the WebAuthn `navigator.credentials` API on Android using Android's native Credential Manager. This allows passkey functionality to work seamlessly in Capacitor WebViews on Android 14+ or Android 9+ with Play Services.
 
@@ -60,15 +62,38 @@ https://github.com/android/identity-samples/tree/main/WebView/CredentialManagerW
 
 ## Installation
 
+Install directly from GitHub:
+
 ```bash
-pnpm install
+npm install github:MyRenegadeApp/capacitor-android-credential-manager
+```
+
+Or with pnpm:
+
+```bash
+pnpm add github:MyRenegadeApp/capacitor-android-credential-manager
+```
+
+Or add to your `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@myrenegade/capacitor-android-credential-manager": "github:MyRenegadeApp/capacitor-android-credential-manager"
+  }
+}
 ```
 
 Then sync with Capacitor:
 
 ```bash
-pnpm cap sync android
+npx cap sync android
 ```
+
+> **Note:** Once published to npm, you'll be able to install with - atm it's not published!:
+> ```bash
+> npm install @myrenegade/capacitor-android-credential-manager
+> ```
 
 ## Usage
 
@@ -110,7 +135,7 @@ const credential = await navigator.credentials.get({
 The plugin exposes debug methods for troubleshooting:
 
 ```typescript
-import { CredentialManager } from 'capacitor-credential-manager';
+import { CredentialManager } from '@myrenegade/capacitor-android-credential-manager';
 
 // Check if polyfill is injected
 const { isInjected } = await CredentialManager.checkInjection();
